@@ -30,6 +30,7 @@
 		243C836E199AA46D00E1DF26 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 243C8367199AA46D00E1DF26 /* FMDatabaseQueue.m */; };
 		243C836F199AA46D00E1DF26 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 243C836A199AA46D00E1DF26 /* FMResultSet.m */; };
 		243C8371199AA48A00E1DF26 /* teamdata.db in Resources */ = {isa = PBXBuildFile; fileRef = 243C8370199AA48A00E1DF26 /* teamdata.db */; };
+		24AED17A199B785500BE3105 /* SimBaseBatterDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AED179199B785500BE3105 /* SimBaseBatterDetailTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,8 @@
 		243C8369199AA46D00E1DF26 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		243C836A199AA46D00E1DF26 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		243C8370199AA48A00E1DF26 /* teamdata.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = teamdata.db; sourceTree = "<group>"; };
+		24AED178199B785500BE3105 /* SimBaseBatterDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimBaseBatterDetailTableViewController.h; sourceTree = "<group>"; };
+		24AED179199B785500BE3105 /* SimBaseBatterDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimBaseBatterDetailTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +148,8 @@
 				243C830519993C7D00E1DF26 /* SimBaseAppDelegate.h */,
 				243C830619993C7D00E1DF26 /* SimBaseAppDelegate.m */,
 				243C830819993C7D00E1DF26 /* Main.storyboard */,
+				24AED178199B785500BE3105 /* SimBaseBatterDetailTableViewController.h */,
+				24AED179199B785500BE3105 /* SimBaseBatterDetailTableViewController.m */,
 				243C8358199A960000E1DF26 /* SimBaseBatterTableViewController.h */,
 				243C8359199A960000E1DF26 /* SimBaseBatterTableViewController.m */,
 				243C830B19993C7D00E1DF26 /* SimBaseViewController.h */,
@@ -315,6 +320,7 @@
 				243C835A199A960000E1DF26 /* SimBaseBatterTableViewController.m in Sources */,
 				243C830319993C7D00E1DF26 /* main.m in Sources */,
 				243C830D19993C7D00E1DF26 /* SimBaseViewController.m in Sources */,
+				24AED17A199B785500BE3105 /* SimBaseBatterDetailTableViewController.m in Sources */,
 				243C836B199AA46D00E1DF26 /* FMDatabase.m in Sources */,
 				243C836F199AA46D00E1DF26 /* FMResultSet.m in Sources */,
 				243C830719993C7D00E1DF26 /* SimBaseAppDelegate.m in Sources */,
@@ -526,6 +532,7 @@
 				243C832719993C7D00E1DF26 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		243C832819993C7D00E1DF26 /* Build configuration list for PBXNativeTarget "SimBaseTests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +541,7 @@
 				243C832A19993C7D00E1DF26 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

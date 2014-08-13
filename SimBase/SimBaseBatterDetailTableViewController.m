@@ -1,22 +1,27 @@
 //
-//  SimBaseBatterTableViewController.m
+//  SimBaseBatterDetailTableViewController.m
 //  SimBase
 //
 //  Created by Kiko on 2014/08/13.
 //  Copyright (c) 2014年 Kiko. All rights reserved.
 //
 
-#import "SimBaseBatterTableViewController.h"
 #import "SimBaseBatterDetailTableViewController.h"
-#import "Batter.h"
 
-@interface SimBaseBatterTableViewController (){
-    Batter *selectedBatter;
-}
+@interface SimBaseBatterDetailTableViewController ()
 
 @end
 
-@implementation SimBaseBatterTableViewController
+@implementation SimBaseBatterDetailTableViewController
+@synthesize batter;
+@synthesize batterId;
+@synthesize name;
+@synthesize teamId;
+@synthesize orderNumber;
+@synthesize battingAverage;
+@synthesize longBattingAverage;
+@synthesize battingAverageStepper;
+@synthesize longBattingAverageStepper;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -37,39 +42,12 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSError *error;
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *writableDBPath = [documentsDirectory stringByAppendingPathComponent:@"teamdata.db"];
-    BOOL success = [fileManager fileExistsAtPath:writableDBPath];
-    if(!success){
-        NSAssert1(0, @"failed to create writable db file with message '%@'.", [error localizedDescription]);
-    }
-    
-    FMDatabase* db = [FMDatabase databaseWithPath:writableDBPath];
-    if(![db open])
-    {
-        NSLog(@"Err %d: %@",[db lastErrorCode],[db lastErrorMessage]);
-    }
-    [db setShouldCacheStatements:YES];
-    
-    NSString* sql = @"SELECT * FROM batter;";
-    FMResultSet* rs = [db executeQuery:sql];
-    mBatters = [[NSMutableArray alloc] init];
-    while([rs next])
-    {
-        Batter * batter = [[Batter alloc] init];
-        batter.batterId = [[NSNumber alloc] initWithInt:[rs intForColumn:@"batter_id"]];
-        batter.name = [rs stringForColumn:@"name"];
-        batter.teamId = [[NSNumber alloc] initWithInt:[rs intForColumn:@"team_id"]];
-        batter.orderNumber = [[NSNumber alloc] initWithInt:[rs intForColumn:@"order_number"]];
-        batter.battingAverage = [[NSNumber alloc] initWithFloat:[rs doubleForColumn:@"batting_average"]];
-        batter.longBattingAverage = [[NSNumber alloc] initWithFloat:[rs doubleForColumn:@"long_batting_average"]];
-        [mBatters addObject:batter];
-    }
-    [rs close];
-    [db close];
+    batterId.text = [batter.batterId stringValue];
+    name.text = batter.name;
+    teamId.text = [batter.teamId stringValue];
+    orderNumber.text = [batter.orderNumber stringValue];
+    battingAverage.text = [batter.battingAverage stringValue];
+    longBattingAverage.text = [batter.longBattingAverage stringValue];
 }
 
 - (void)didReceiveMemoryWarning
@@ -89,25 +67,19 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [mBatters count];
+    return 6;
 }
 
+/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if(cell == nil){
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-    }
-    
-    Batter *batter = [mBatters objectAtIndex:indexPath.row];
-    cell.textLabel.text = batter.name;
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
     
     // Configure the cell...
     
     return cell;
 }
+*/
 
 /*
 // Override to support conditional editing of the table view.
@@ -147,6 +119,7 @@
 }
 */
 
+/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -154,20 +127,7 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    if([[segue identifier] isEqualToString:@"toDetailView"]){
-        SimBaseBatterDetailTableViewController *simBaseBatterDetailTableViewController = [segue destinationViewController];
-        simBaseBatterDetailTableViewController.title = @"Edit Status";
-        simBaseBatterDetailTableViewController.batter = selectedBatter;
-        
-    }
 }
-
-#pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    selectedBatter = [mBatters objectAtIndex:indexPath.row];
-    [self performSegueWithIdentifier:@"toDetailView" sender:self];
-}
+*/
 
 @end
