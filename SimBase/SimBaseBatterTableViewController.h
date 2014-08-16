@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "FMDatabase.h"
+#import "BatterModel.h"
 
 @interface SimBaseBatterTableViewController : UITableViewController
 {
     NSMutableArray *mBatters;
+    BatterModel* batterModel;
+    Batter *selectedBatter;
 }
 
 @end

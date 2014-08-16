@@ -10,12 +10,6 @@
 #import "SimBaseBatterDetailTableViewController.h"
 #import "Batter.h"
 
-@interface SimBaseBatterTableViewController (){
-    Batter *selectedBatter;
-}
-
-@end
-
 @implementation SimBaseBatterTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -36,40 +30,11 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
+    // open database
     
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSError *error;
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *writableDBPath = [documentsDirectory stringByAppendingPathComponent:@"teamdata.db"];
-    BOOL success = [fileManager fileExistsAtPath:writableDBPath];
-    if(!success){
-        NSAssert1(0, @"failed to create writable db file with message '%@'.", [error localizedDescription]);
-    }
-    
-    FMDatabase* db = [FMDatabase databaseWithPath:writableDBPath];
-    if(![db open])
-    {
-        NSLog(@"Err %d: %@",[db lastErrorCode],[db lastErrorMessage]);
-    }
-    [db setShouldCacheStatements:YES];
-    
-    NSString* sql = @"SELECT * FROM batter;";
-    FMResultSet* rs = [db executeQuery:sql];
-    mBatters = [[NSMutableArray alloc] init];
-    while([rs next])
-    {
-        Batter * batter = [[Batter alloc] init];
-        batter.batterId = [[NSNumber alloc] initWithInt:[rs intForColumn:@"batter_id"]];
-        batter.name = [rs stringForColumn:@"name"];
-        batter.teamId = [[NSNumber alloc] initWithInt:[rs intForColumn:@"team_id"]];
-        batter.orderNumber = [[NSNumber alloc] initWithInt:[rs intForColumn:@"order_number"]];
-        batter.battingAverage = [[NSNumber alloc] initWithFloat:[rs doubleForColumn:@"batting_average"]];
-        batter.longBattingAverage = [[NSNumber alloc] initWithFloat:[rs doubleForColumn:@"long_batting_average"]];
-        [mBatters addObject:batter];
-    }
-    [rs close];
-    [db close];
+    batterModel = [BatterModel batterModel];
+    mBatters = batterModel.getBatters;
 }
 
 - (void)didReceiveMemoryWarning
@@ -102,6 +67,7 @@
     
     Batter *batter = [mBatters objectAtIndex:indexPath.row];
     cell.textLabel.text = batter.name;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"Ave: %@, longAve: %@",[batter.battingAverage stringValue],[batter.longBattingAverage stringValue]];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     // Configure the cell...
@@ -158,7 +124,7 @@
         SimBaseBatterDetailTableViewController *simBaseBatterDetailTableViewController = [segue destinationViewController];
         simBaseBatterDetailTableViewController.title = @"Edit Status";
         simBaseBatterDetailTableViewController.batter = selectedBatter;
-        
+        simBaseBatterDetailTableViewController.batterModel = batterModel;
     }
 }
 

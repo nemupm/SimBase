@@ -29,8 +29,9 @@
 		243C836D199AA46D00E1DF26 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 243C8365199AA46D00E1DF26 /* FMDatabasePool.m */; };
 		243C836E199AA46D00E1DF26 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 243C8367199AA46D00E1DF26 /* FMDatabaseQueue.m */; };
 		243C836F199AA46D00E1DF26 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 243C836A199AA46D00E1DF26 /* FMResultSet.m */; };
-		243C8371199AA48A00E1DF26 /* teamdata.db in Resources */ = {isa = PBXBuildFile; fileRef = 243C8370199AA48A00E1DF26 /* teamdata.db */; };
 		24AED17A199B785500BE3105 /* SimBaseBatterDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AED179199B785500BE3105 /* SimBaseBatterDetailTableViewController.m */; };
+		24AED180199BF39500BE3105 /* teamdata.db in Resources */ = {isa = PBXBuildFile; fileRef = 24AED17F199BF39500BE3105 /* teamdata.db */; };
+		24AED183199CC49300BE3105 /* BatterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AED182199CC49300BE3105 /* BatterModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,9 +80,11 @@
 		243C8368199AA46D00E1DF26 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
 		243C8369199AA46D00E1DF26 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		243C836A199AA46D00E1DF26 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
-		243C8370199AA48A00E1DF26 /* teamdata.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = teamdata.db; sourceTree = "<group>"; };
 		24AED178199B785500BE3105 /* SimBaseBatterDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimBaseBatterDetailTableViewController.h; sourceTree = "<group>"; };
 		24AED179199B785500BE3105 /* SimBaseBatterDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimBaseBatterDetailTableViewController.m; sourceTree = "<group>"; };
+		24AED17F199BF39500BE3105 /* teamdata.db */ = {isa = PBXFileReference; lastKnownFileType = file; name = teamdata.db; path = ../teamdata.db; sourceTree = "<group>"; };
+		24AED181199CC49300BE3105 /* BatterModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BatterModel.h; path = SimBase/BatterModel.h; sourceTree = "<group>"; };
+		24AED182199CC49300BE3105 /* BatterModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BatterModel.m; path = SimBase/BatterModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,7 +166,7 @@
 		243C82FD19993C7D00E1DF26 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				243C8370199AA48A00E1DF26 /* teamdata.db */,
+				24AED17F199BF39500BE3105 /* teamdata.db */,
 				243C82FE19993C7D00E1DF26 /* SimBase-Info.plist */,
 				243C82FF19993C7D00E1DF26 /* InfoPlist.strings */,
 				243C830219993C7D00E1DF26 /* main.m */,
@@ -194,6 +197,8 @@
 			isa = PBXGroup;
 			children = (
 				243C8355199A8F4600E1DF26 /* Batter.h */,
+				24AED181199CC49300BE3105 /* BatterModel.h */,
+				24AED182199CC49300BE3105 /* BatterModel.m */,
 				243C8356199A8F4600E1DF26 /* Batter.m */,
 			);
 			name = model;
@@ -295,7 +300,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				243C8371199AA48A00E1DF26 /* teamdata.db in Resources */,
+				24AED180199BF39500BE3105 /* teamdata.db in Resources */,
 				243C830F19993C7D00E1DF26 /* Images.xcassets in Resources */,
 				243C830119993C7D00E1DF26 /* InfoPlist.strings in Resources */,
 				243C830A19993C7D00E1DF26 /* Main.storyboard in Resources */,
@@ -322,6 +327,7 @@
 				243C830D19993C7D00E1DF26 /* SimBaseViewController.m in Sources */,
 				24AED17A199B785500BE3105 /* SimBaseBatterDetailTableViewController.m in Sources */,
 				243C836B199AA46D00E1DF26 /* FMDatabase.m in Sources */,
+				24AED183199CC49300BE3105 /* BatterModel.m in Sources */,
 				243C836F199AA46D00E1DF26 /* FMResultSet.m in Sources */,
 				243C830719993C7D00E1DF26 /* SimBaseAppDelegate.m in Sources */,
 				243C836D199AA46D00E1DF26 /* FMDatabasePool.m in Sources */,

@@ -155,6 +155,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1202" y="-564"/>
         </scene>
         <!--Navigation Controller - Batter-->
         <scene sceneID="m0W-Dz-A5j">
@@ -172,7 +173,7 @@
             </objects>
             <point key="canvasLocation" x="1046" y="-1263"/>
         </scene>
-        <!--Sim Base Batter Table View Controller - Batter-->
+        <!--Sim Base Batter Table View Controller - Batter List-->
         <scene sceneID="zt1-Sc-oD1">
             <objects>
                 <tableViewController id="vmB-WC-q49" customClass="SimBaseBatterTableViewController" sceneMemberID="viewController">
@@ -187,14 +188,16 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Batter" id="5Sc-j3-Hyt"/>
-                    <navigationItem key="navigationItem" id="K4i-Tt-Vti"/>
+                    <navigationItem key="navigationItem" title="Batter List" id="K4i-Tt-Vti">
+                        <barButtonItem key="backBarButtonItem" title="Baka" id="sMd-Bt-dk7"/>
+                    </navigationItem>
                     <connections>
                         <segue destination="iv2-gJ-hxN" kind="push" identifier="toDetailView" id="nhf-kD-QLk"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z2Q-bQ-dV2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1232" y="-795"/>
+            <point key="canvasLocation" x="1470" y="-1203"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="2Yk-0T-qAq">
@@ -234,14 +237,19 @@
             </objects>
             <point key="canvasLocation" x="1132" y="-37"/>
         </scene>
-        <!--Sim Base Batter Detail Table View Controller-->
+        <!--Sim Base Batter Detail Table View Controller - Batter Detail-->
         <scene sceneID="kPR-37-lPN">
             <objects>
                 <tableViewController storyboardIdentifier="detailView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="iv2-gJ-hxN" customClass="SimBaseBatterDetailTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="4xP-sg-yLJ">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="4xP-sg-yLJ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <toolbar key="tableFooterView" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="pMF-Xb-hai">
+                            <rect key="frame" x="0.0" y="390" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <items/>
+                        </toolbar>
                         <sections>
                             <tableViewSection id="rxG-6c-rKR">
                                 <cells>
@@ -252,11 +260,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lff-Ah-Ual">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lff-Ah-Ual">
                                                     <rect key="frame" x="74" y="7" width="226" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="iv2-gJ-hxN" id="KTX-Dn-1B9"/>
+                                                    </connections>
                                                 </textField>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fN5-I6-Zae">
                                                     <rect key="frame" x="20" y="11" width="46" height="21"/>
@@ -353,10 +364,13 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="FX0-7z-qEj">
-                                                    <rect key="frame" x="207" y="40" width="94" height="29"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                </stepper>
+                                                <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.25" minValue="0.0" maxValue="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="VLS-bD-Vdc">
+                                                    <rect key="frame" x="18" y="40" width="284" height="31"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <action selector="battingAverageSliderChanged:" destination="iv2-gJ-hxN" eventType="valueChanged" id="rmy-cY-at8"/>
+                                                    </connections>
+                                                </slider>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -379,10 +393,13 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <stepper opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="iXB-tH-UHi">
-                                                    <rect key="frame" x="206" y="40" width="94" height="29"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                </stepper>
+                                                <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="nXY-0I-kkM">
+                                                    <rect key="frame" x="18" y="40" width="284" height="31"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <action selector="longBattingAverageSliderChanged:" destination="iv2-gJ-hxN" eventType="valueChanged" id="UaN-k1-Q9X"/>
+                                                    </connections>
+                                                </slider>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -394,21 +411,30 @@
                             <outlet property="delegate" destination="iv2-gJ-hxN" id="vS5-Fb-tRo"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="dYd-aH-jRz"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Batter Detail" id="dYd-aH-jRz">
+                        <barButtonItem key="rightBarButtonItem" title="save" id="FHG-0d-ccJ">
+                            <connections>
+                                <action selector="updateBatterStatus:" destination="iv2-gJ-hxN" id="LcV-xO-iCV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="batterId" destination="cVi-AF-AdT" id="LKS-yD-9TS"/>
                         <outlet property="battingAverage" destination="Tde-AX-B4J" id="akr-x3-jDD"/>
-                        <outlet property="battingAverageStepper" destination="FX0-7z-qEj" id="IN2-f0-psR"/>
+                        <outlet property="battingAverageSlider" destination="VLS-bD-Vdc" id="oDZ-Rv-6Tm"/>
                         <outlet property="longBattingAverage" destination="YA5-td-WsO" id="IUi-Xb-oy7"/>
-                        <outlet property="longBattingAverageStepper" destination="iXB-tH-UHi" id="vng-Fn-MM1"/>
+                        <outlet property="longBattingAverageSlider" destination="nXY-0I-kkM" id="vGa-Nn-HE2"/>
                         <outlet property="name" destination="Lff-Ah-Ual" id="PC9-4r-AL5"/>
                         <outlet property="orderNumber" destination="iij-sV-ag0" id="llF-xh-fTz"/>
                         <outlet property="teamId" destination="4qq-gd-0Yc" id="JK4-Y8-csT"/>
+                        <outlet property="updateBatterStatusButton" destination="FHG-0d-ccJ" id="O9p-ph-WbZ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6L9-KZ-QQ6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1649" y="-783"/>
+            <point key="canvasLocation" x="2096" y="-801"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

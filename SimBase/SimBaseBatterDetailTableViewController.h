@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "Batter.h"
+#import "BatterModel.h"
 
 @interface SimBaseBatterDetailTableViewController : UITableViewController
+<UITextFieldDelegate>
 {
+    BatterModel *batterModel;
     Batter *batter;
     UITextField *name;
     UILabel *batterId;
@@ -18,9 +21,10 @@
     UILabel *orderNumber;
     UILabel *battingAverage;
     UILabel *longBattingAverage;
-    UIStepper *battingAverageStepper;
-    UIStepper *longBattingAverageStepper;
+    UISlider *battingAverageSlider;
+    UISlider *longBattingAverageSlider;
 }
+@property(nonatomic,retain)BatterModel *batterModel;
 @property(nonatomic,retain)Batter *batter;
 @property(nonatomic,retain)IBOutlet UITextField *name;
 @property(nonatomic,retain)IBOutlet UILabel *batterId;
@@ -28,6 +32,10 @@
 @property(nonatomic,retain)IBOutlet UILabel *orderNumber;
 @property(nonatomic,retain)IBOutlet UILabel *battingAverage;
 @property(nonatomic,retain)IBOutlet UILabel *longBattingAverage;
-@property(nonatomic,retain)IBOutlet UIStepper *battingAverageStepper;
-@property(nonatomic,retain)IBOutlet UIStepper *longBattingAverageStepper;
+@property(nonatomic,retain)IBOutlet UISlider *battingAverageSlider;
+@property(nonatomic,retain)IBOutlet UISlider *longBattingAverageSlider;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *updateBatterStatusButton;
+- (IBAction)battingAverageSliderChanged:(id)sender;
+- (IBAction)longBattingAverageSliderChanged:(id)sender;
+- (IBAction)updateBatterStatus:(id)sender;
 @end

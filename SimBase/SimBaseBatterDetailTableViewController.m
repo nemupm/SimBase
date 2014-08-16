@@ -8,11 +8,8 @@
 
 #import "SimBaseBatterDetailTableViewController.h"
 
-@interface SimBaseBatterDetailTableViewController ()
-
-@end
-
 @implementation SimBaseBatterDetailTableViewController
+@synthesize batterModel;
 @synthesize batter;
 @synthesize batterId;
 @synthesize name;
@@ -20,8 +17,11 @@
 @synthesize orderNumber;
 @synthesize battingAverage;
 @synthesize longBattingAverage;
-@synthesize battingAverageStepper;
-@synthesize longBattingAverageStepper;
+@synthesize battingAverageSlider;
+@synthesize longBattingAverageSlider;
+
+float floatBattingAverage;
+float floatLongBattingAverage;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -46,8 +46,12 @@
     name.text = batter.name;
     teamId.text = [batter.teamId stringValue];
     orderNumber.text = [batter.orderNumber stringValue];
-    battingAverage.text = [batter.battingAverage stringValue];
-    longBattingAverage.text = [batter.longBattingAverage stringValue];
+    battingAverage.text = [NSString stringWithFormat:@"%.3f",[batter.battingAverage floatValue]];
+    longBattingAverage.text = [NSString stringWithFormat:@"%.3f",[batter.longBattingAverage floatValue]];
+    floatBattingAverage = [batter.battingAverage floatValue];
+    battingAverageSlider.value = floatBattingAverage;
+    floatLongBattingAverage = [batter.longBattingAverage floatValue];
+    longBattingAverageSlider.value = floatLongBattingAverage;
 }
 
 - (void)didReceiveMemoryWarning
@@ -130,4 +134,27 @@
 }
 */
 
+- (IBAction)battingAverageSliderChanged:(id)sender {
+    floatBattingAverage = round(battingAverageSlider.value*100)/100;
+    battingAverage.text = [NSString stringWithFormat:@"%.3f",floatBattingAverage];
+}
+
+- (IBAction)longBattingAverageSliderChanged:(id)sender {
+    floatLongBattingAverage = round(longBattingAverageSlider.value*100)/100;
+    longBattingAverage.text = [NSString stringWithFormat:@"%.3f",floatLongBattingAverage];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField*)theTextField{
+    if(theTextField == name){
+        [theTextField resignFirstResponder];
+    }
+    return YES;
+}
+
+- (IBAction)updateBatterStatus:(id)sender {
+    batter.battingAverage = [NSNumber numberWithFloat:floatBattingAverage];
+    batter.longBattingAverage = [NSNumber numberWithFloat:floatLongBattingAverage];
+    batter.name = name.text;
+    [batterModel updateBatterStatus:batter];
+}
 @end
