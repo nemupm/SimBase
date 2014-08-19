@@ -29,6 +29,9 @@
 		243C836D199AA46D00E1DF26 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 243C8365199AA46D00E1DF26 /* FMDatabasePool.m */; };
 		243C836E199AA46D00E1DF26 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 243C8367199AA46D00E1DF26 /* FMDatabaseQueue.m */; };
 		243C836F199AA46D00E1DF26 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 243C836A199AA46D00E1DF26 /* FMResultSet.m */; };
+		249DDECA19A250A30069FE73 /* SeasonResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 249DDEC919A250A30069FE73 /* SeasonResult.m */; };
+		249DDECD19A251C10069FE73 /* SeasonResultAverage.m in Sources */ = {isa = PBXBuildFile; fileRef = 249DDECC19A251C10069FE73 /* SeasonResultAverage.m */; };
+		249DDED019A252510069FE73 /* SeasonResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 249DDECF19A252510069FE73 /* SeasonResultModel.m */; };
 		24AED17A199B785500BE3105 /* SimBaseBatterDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AED179199B785500BE3105 /* SimBaseBatterDetailTableViewController.m */; };
 		24AED180199BF39500BE3105 /* teamdata.db in Resources */ = {isa = PBXBuildFile; fileRef = 24AED17F199BF39500BE3105 /* teamdata.db */; };
 		24AED183199CC49300BE3105 /* BatterModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AED182199CC49300BE3105 /* BatterModel.m */; };
@@ -80,6 +83,12 @@
 		243C8368199AA46D00E1DF26 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
 		243C8369199AA46D00E1DF26 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		243C836A199AA46D00E1DF26 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		249DDEC819A250A30069FE73 /* SeasonResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SeasonResult.h; path = SimBase/SeasonResult.h; sourceTree = "<group>"; };
+		249DDEC919A250A30069FE73 /* SeasonResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SeasonResult.m; path = SimBase/SeasonResult.m; sourceTree = "<group>"; };
+		249DDECB19A251C10069FE73 /* SeasonResultAverage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SeasonResultAverage.h; path = SimBase/SeasonResultAverage.h; sourceTree = "<group>"; };
+		249DDECC19A251C10069FE73 /* SeasonResultAverage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SeasonResultAverage.m; path = SimBase/SeasonResultAverage.m; sourceTree = "<group>"; };
+		249DDECE19A252510069FE73 /* SeasonResultModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SeasonResultModel.h; path = SimBase/SeasonResultModel.h; sourceTree = "<group>"; };
+		249DDECF19A252510069FE73 /* SeasonResultModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SeasonResultModel.m; path = SimBase/SeasonResultModel.m; sourceTree = "<group>"; };
 		24AED178199B785500BE3105 /* SimBaseBatterDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimBaseBatterDetailTableViewController.h; sourceTree = "<group>"; };
 		24AED179199B785500BE3105 /* SimBaseBatterDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimBaseBatterDetailTableViewController.m; sourceTree = "<group>"; };
 		24AED17F199BF39500BE3105 /* teamdata.db */ = {isa = PBXFileReference; lastKnownFileType = file; name = teamdata.db; path = ../teamdata.db; sourceTree = "<group>"; };
@@ -197,9 +206,15 @@
 			isa = PBXGroup;
 			children = (
 				243C8355199A8F4600E1DF26 /* Batter.h */,
+				243C8356199A8F4600E1DF26 /* Batter.m */,
 				24AED181199CC49300BE3105 /* BatterModel.h */,
 				24AED182199CC49300BE3105 /* BatterModel.m */,
-				243C8356199A8F4600E1DF26 /* Batter.m */,
+				249DDEC819A250A30069FE73 /* SeasonResult.h */,
+				249DDEC919A250A30069FE73 /* SeasonResult.m */,
+				249DDECB19A251C10069FE73 /* SeasonResultAverage.h */,
+				249DDECC19A251C10069FE73 /* SeasonResultAverage.m */,
+				249DDECE19A252510069FE73 /* SeasonResultModel.h */,
+				249DDECF19A252510069FE73 /* SeasonResultModel.m */,
 			);
 			name = model;
 			path = ..;
@@ -322,12 +337,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				249DDED019A252510069FE73 /* SeasonResultModel.m in Sources */,
 				243C835A199A960000E1DF26 /* SimBaseBatterTableViewController.m in Sources */,
 				243C830319993C7D00E1DF26 /* main.m in Sources */,
 				243C830D19993C7D00E1DF26 /* SimBaseViewController.m in Sources */,
 				24AED17A199B785500BE3105 /* SimBaseBatterDetailTableViewController.m in Sources */,
+				249DDECA19A250A30069FE73 /* SeasonResult.m in Sources */,
 				243C836B199AA46D00E1DF26 /* FMDatabase.m in Sources */,
 				24AED183199CC49300BE3105 /* BatterModel.m in Sources */,
+				249DDECD19A251C10069FE73 /* SeasonResultAverage.m in Sources */,
 				243C836F199AA46D00E1DF26 /* FMResultSet.m in Sources */,
 				243C830719993C7D00E1DF26 /* SimBaseAppDelegate.m in Sources */,
 				243C836D199AA46D00E1DF26 /* FMDatabasePool.m in Sources */,

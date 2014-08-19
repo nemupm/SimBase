@@ -154,6 +154,11 @@ float floatLongBattingAverage;
 - (IBAction)updateBatterStatus:(id)sender {
     batter.battingAverage = [NSNumber numberWithFloat:floatBattingAverage];
     batter.longBattingAverage = [NSNumber numberWithFloat:floatLongBattingAverage];
+    if (name.text.length == 0) {
+        name.text = @"名無しの権兵衛";
+    }else if(name.text.length > 12){
+        name.text = @"名前の文字数大杉平八郎";
+    }
     batter.name = name.text;
     [batterModel updateBatterStatus:batter];
 }

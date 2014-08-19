@@ -34,7 +34,13 @@
     // open database
     
     batterModel = [BatterModel batterModel];
-    mBatters = batterModel.getBatters;
+    mBatters = [batterModel getBatters];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    mBatters = [batterModel getBatters];
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -67,7 +73,7 @@
     
     Batter *batter = [mBatters objectAtIndex:indexPath.row];
     cell.textLabel.text = batter.name;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"Ave: %@, longAve: %@",[batter.battingAverage stringValue],[batter.longBattingAverage stringValue]];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"Ave: %.3f, longAve: %.3f",[batter.battingAverage floatValue],[batter.longBattingAverage floatValue]];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     // Configure the cell...

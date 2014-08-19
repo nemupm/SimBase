@@ -152,6 +152,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="lostPointAverage" destination="gtN-KW-je0" id="0os-XY-SRf"/>
+                        <outlet property="lostPointAverageAllSeasons" destination="57r-mF-EI1" id="TuT-hL-lXS"/>
+                        <outlet property="pointAverage" destination="jQc-MY-mo2" id="MJw-mg-FcX"/>
+                        <outlet property="pointAverageAllSeasons" destination="Ccg-5f-Ran" id="F6z-II-bRG"/>
+                        <outlet property="winLoss" destination="IwK-jq-DPo" id="bD9-Zj-Adz"/>
+                        <outlet property="winLossAllSeasons" destination="5vL-vb-0hL" id="vZ3-rX-RQb"/>
+                        <outlet property="winRate" destination="3fs-Dn-Oha" id="yUA-UL-Kvp"/>
+                        <outlet property="winRateAllSeasons" destination="fJH-S4-wVk" id="8ai-6c-RTn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
@@ -188,9 +198,7 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Batter" id="5Sc-j3-Hyt"/>
-                    <navigationItem key="navigationItem" title="Batter List" id="K4i-Tt-Vti">
-                        <barButtonItem key="backBarButtonItem" title="Baka" id="sMd-Bt-dk7"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Batter List" id="K4i-Tt-Vti"/>
                     <connections>
                         <segue destination="iv2-gJ-hxN" kind="push" identifier="toDetailView" id="nhf-kD-QLk"/>
                     </connections>

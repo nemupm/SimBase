@@ -79,7 +79,7 @@ static NSString* const DB_FILE = @"teamdata.db";
     return mBatters;
 }
 -(void)updateBatterStatus:(Batter*)batter{
-    NSString* sql = [NSString stringWithFormat:@"UPDATE batter SET batting_average=%f, long_batting_average=%f WHERE batter_id=%d",[batter.battingAverage floatValue],[batter.longBattingAverage floatValue],[batter.batterId intValue]];
+    NSString* sql = [NSString stringWithFormat:@"UPDATE batter SET name='%@', batting_average=%f, long_batting_average=%f WHERE batter_id=%d",batter.name,[batter.battingAverage floatValue],[batter.longBattingAverage floatValue],[batter.batterId intValue]];
     [db executeUpdate:sql];
 }
 @end
